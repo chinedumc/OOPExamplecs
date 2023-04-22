@@ -10,15 +10,22 @@ namespace OOPExample
             Creator programmer = new Programmer();
 
             Console.WriteLine("--- Youtuber ---");
-            //Console.WriteLine();
             youtuber.Create();
 
             Console.WriteLine();
 
             Console.WriteLine("--- Programmer --");
-            //Console.WriteLine();
             programmer.Create();
-            //}
+
+            //Implementing Dynamic Polymorphism
+            List<Creator> creators = new List<Creator>() { new Youtuber(), new Programmer()};
+
+            foreach(var creator in creators)
+            {
+                Console.WriteLine(creator.GetType().Name);
+                creator.Create();
+                Console.WriteLine();
+            }
         }
     }
 }
